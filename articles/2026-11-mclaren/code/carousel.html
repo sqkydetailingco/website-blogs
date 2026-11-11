@@ -8,10 +8,18 @@
 .sqky-story-carousel-card{ flex:0 0 calc(100% / var(--sqky-story-carousel-visible) - var(--sqky-story-carousel-gap)); width:calc(100% / var(--sqky-story-carousel-visible) - var(--sqky-story-carousel-gap)); height:var(--sqky-story-carousel-h); margin-right:var(--sqky-story-carousel-gap); position:relative; border-radius:var(--sqky-story-carousel-radius); overflow:hidden; background:#000; }
 .sqky-story-carousel-card:last-child{ margin-right:0; }
 .sqky-story-carousel-photo{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; z-index:0; filter:contrast(1.08) saturate(0.85) brightness(0.97); }
-.sqky-story-carousel-card::before{ content:""; position:absolute; inset:0; z-index:1; pointer-events:none; background:linear-gradient(to bottom, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.4) 20%, rgba(0,0,0,0.05) 38%, rgba(0,0,0,0.05) 52%, rgba(0,0,0,0.6) 74%, rgba(0,0,0,0.88) 100%); }
+.sqky-story-carousel-card::before{ content:""; position:absolute; inset:0; z-index:1; pointer-events:none; background:linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.35) 18%, rgba(0,0,0,0) 34%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.62) 58%, rgba(0,0,0,0.9) 76%, rgba(0,0,0,0.97) 100%); }
 .sqky-story-carousel-top{ position:absolute; top:22px; left:20px; right:20px; z-index:2; color:#fff; }
 .sqky-story-carousel-title{ font-size:30px; font-weight:550 !important; line-height:1.2; margin:0; color:#fff; }
-.sqky-story-carousel-desc{ position:absolute; left:20px; right:20px; bottom:20px; z-index:2; margin:0; color:rgba(255,255,255,0.92); font-size:15.5px; line-height:1.5; }
+.sqky-story-carousel-desc{ position:absolute; left:20px; right:20px; bottom:20px; z-index:2; margin:0; color:#fff; font-size:15.5px; line-height:1.5; text-shadow:0 1px 8px rgba(0,0,0,0.6); }
+.sqky-story-carousel-card{ cursor:pointer; -webkit-tap-highlight-color:transparent; }
+.sqky-story-carousel-card:focus-visible{ outline:3px solid #f2f2d3; outline-offset:-3px; }
+.sqky-story-carousel-title{ padding-right:44px; }
+.sqky-story-carousel-expand{ position:absolute; top:22px; right:18px; z-index:3; width:34px; height:34px; border-radius:999px; background:rgba(242,242,211,0.95); color:#0b0b0b; display:flex; align-items:center; justify-content:center; opacity:0.85; }
+.sqky-story-carousel-expand svg{ width:16px; height:16px; display:block; }
+.sqky-story-carousel-wrap.is-ready .sqky-story-carousel-photo{ transition:transform 600ms cubic-bezier(.2,.8,.2,1); }
+.sqky-story-carousel-wrap.is-ready .sqky-story-carousel-expand{ transition:opacity 200ms ease, transform 200ms ease; }
+@media (hover:hover){ .sqky-story-carousel-expand{ opacity:0; transform:scale(0.85); } .sqky-story-carousel-card:hover .sqky-story-carousel-expand, .sqky-story-carousel-card:focus-visible .sqky-story-carousel-expand{ opacity:1; transform:scale(1); } .sqky-story-carousel-card:hover .sqky-story-carousel-photo{ transform:scale(1.05); } }
 .sqky-story-carousel-nav{ display:flex; justify-content:flex-end; gap:10px; margin-top:16px; }
 .sqky-story-carousel-arrow{ width:36px; height:36px; border-radius:999px; border:0; background:#e8e8ed; color:#6e6e73; cursor:pointer; display:flex; align-items:center; justify-content:center; }
 .sqky-story-carousel-arrow:hover{ background:#d6d6db; color:#1d1d1f; }
@@ -19,94 +27,128 @@
 .sqky-story-carousel-arrow svg{ width:15px; height:15px; }
 @media (max-width: 1024px){ .sqky-story-carousel{ --sqky-story-carousel-h:440px; --sqky-story-carousel-visible:2.25; --sqky-story-carousel-gap:12px; } }
 @media (max-width: 640px){ .sqky-story-carousel{ --sqky-story-carousel-h:500px; --sqky-story-carousel-visible:1.15; --sqky-story-carousel-gap:10px; } .sqky-story-carousel-title{ font-size:28px; font-weight:700 !important; } .sqky-story-carousel-desc{ font-size:16px; } }
+.sqky-story-lb{ position:fixed; inset:0; z-index:2147483000; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,0.94); font-family:-apple-system,BlinkMacSystemFont,sans-serif; -webkit-tap-highlight-color:transparent; }
+.sqky-story-lb.is-open{ display:flex; }
+.sqky-story-lb *{ box-sizing:border-box; }
+.sqky-story-lb-fig{ margin:0; padding:0; display:flex; flex-direction:column; align-items:center; max-width:92vw; }
+.sqky-story-lb-img{ display:block; margin:0 !important; max-width:92vw; max-height:68vh; width:auto; height:auto; object-fit:contain; border-radius:14px; }
+.sqky-story-lb-cap{ width:min(720px, 92vw); margin-top:18px; text-align:center; color:#fff; }
+.sqky-story-lb-title{ margin:0 0 8px; font-size:26px; font-weight:600; line-height:1.2; color:#f2f2d3; }
+.sqky-story-lb-desc{ margin:0; font-size:16px; line-height:1.5; color:rgba(255,255,255,0.88); }
+.sqky-story-lb-count{ display:block; margin-top:12px; font-size:13px; letter-spacing:0.08em; color:rgba(255,255,255,0.55); }
+.sqky-story-lb-btn{ position:absolute; width:48px; height:48px; padding:0; border:0; border-radius:999px; background:rgba(242,242,211,0.95); color:#0b0b0b; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:2; }
+.sqky-story-lb-btn:hover{ background:#f2f2d3; }
+.sqky-story-lb-btn:focus-visible{ outline:3px solid #fff; outline-offset:3px; }
+.sqky-story-lb-btn svg{ width:20px; height:20px; display:block; margin:0; }
+.sqky-story-lb-close{ top:20px; right:20px; }
+.sqky-story-lb-prev{ left:20px; top:34vh; }
+.sqky-story-lb-next{ right:20px; top:34vh; }
+@media (max-width: 640px){ .sqky-story-lb-img{ max-height:58vh; } .sqky-story-lb-title{ font-size:22px; } .sqky-story-lb-desc{ font-size:15px; } .sqky-story-lb-btn{ width:42px; height:42px; } .sqky-story-lb-prev{ left:10px; } .sqky-story-lb-next{ right:10px; } .sqky-story-lb-close{ top:12px; right:12px; } }
 </style>
 <div class="sqky-story-carousel-wrap" data-sqky-story-carousel-root>
   <div class="sqky-story-carousel" data-sqky-story-carousel>
     <div class="sqky-story-carousel-stage">
       <div class="sqky-story-carousel-track">
-        <div class="sqky-story-carousel-card">
+        <div class="sqky-story-carousel-card" role="button" tabindex="0" aria-label="View photo: Exterior Wash &amp; Dry">
           <img class="sqky-story-carousel-photo" width="400" height="500" src="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-front-three-quarter.jpg" alt="Dark grey McLaren front three-quarter with black alloy wheel and orange brake caliper" loading="lazy" decoding="async">
           <div class="sqky-story-carousel-top"><h3 class="sqky-story-carousel-title">Exterior Wash &amp; Dry</h3></div>
+          <span class="sqky-story-carousel-expand" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></span>
           <p class="sqky-story-carousel-desc">The exterior was washed and dried carefully to lift off the dust and road film sitting on the paint. It is the starting point for every Reset Clean.</p>
         </div>
-        <div class="sqky-story-carousel-card">
+        <div class="sqky-story-carousel-card" role="button" tabindex="0" aria-label="View photo: Door Jambs &amp; Sills">
           <img class="sqky-story-carousel-photo" width="400" height="500" src="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-dihedral-door-front-wheel.jpg" alt="McLaren with dihedral door raised above a gloss black front wheel with orange caliper" loading="lazy" decoding="async">
           <div class="sqky-story-carousel-top"><h3 class="sqky-story-carousel-title">Door Jambs &amp; Sills</h3></div>
+          <span class="sqky-story-carousel-expand" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></span>
           <p class="sqky-story-carousel-desc">With the dihedral door up, the jamb and sill get cleaned too, the part owners see every time they get in. A ceramic spray topper can add around three months of protection on top.</p>
         </div>
-        <div class="sqky-story-carousel-card">
+        <div class="sqky-story-carousel-card" role="button" tabindex="0" aria-label="View photo: Interior &amp; Exterior, One Visit">
           <img class="sqky-story-carousel-photo" width="400" height="500" src="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-dihedral-doors-rear-wheel.jpg" alt="McLaren with both dihedral doors raised, showing black alloy rear wheel and cream interior" loading="lazy" decoding="async">
           <div class="sqky-story-carousel-top"><h3 class="sqky-story-carousel-title">Interior &amp; Exterior, One Visit</h3></div>
+          <span class="sqky-story-carousel-expand" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></span>
           <p class="sqky-story-carousel-desc">A Reset Clean covers the cabin and the outside in a single booking, so there are no separate trips and nothing is left half done.</p>
         </div>
-        <div class="sqky-story-carousel-card">
+        <div class="sqky-story-carousel-card" role="button" tabindex="0" aria-label="View photo: Wheels &amp; Calipers">
           <img class="sqky-story-carousel-photo" width="400" height="500" src="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-front-wheel.jpg" alt="Gloss black multi-spoke McLaren wheel with orange brake caliper and clean wheel arch" loading="lazy" decoding="async">
           <div class="sqky-story-carousel-top"><h3 class="sqky-story-carousel-title">Wheels &amp; Calipers</h3></div>
+          <span class="sqky-story-carousel-expand" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></span>
           <p class="sqky-story-carousel-desc">Wheel faces, spokes and the orange calipers were cleaned of brake dust and road film. It builds up fast, which is where a maintenance plan earns its place.</p>
         </div>
-        <div class="sqky-story-carousel-card">
+        <div class="sqky-story-carousel-card" role="button" tabindex="0" aria-label="View photo: Wheel Arches">
           <img class="sqky-story-carousel-photo" width="400" height="500" src="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-wheel-arch.jpg" alt="Detailed black alloy wheel and wheel arch on a dark grey McLaren with reflected garage lights" loading="lazy" decoding="async">
           <div class="sqky-story-carousel-top"><h3 class="sqky-story-carousel-title">Wheel Arches</h3></div>
+          <span class="sqky-story-carousel-expand" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></span>
           <p class="sqky-story-carousel-desc">The arch was cleaned along with the wheel face, so the area around the wheel matches the paint instead of sitting dusty and dull.</p>
         </div>
-        <div class="sqky-story-carousel-card">
+        <div class="sqky-story-carousel-card" role="button" tabindex="0" aria-label="View photo: Paint Gloss">
           <img class="sqky-story-carousel-photo" width="400" height="500" src="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-glossy-paint-finish.jpg" alt="Close-up of deep gloss on dark grey McLaren bodywork reflecting garage lighting" loading="lazy" decoding="async">
           <div class="sqky-story-carousel-top"><h3 class="sqky-story-carousel-title">Paint Gloss</h3></div>
+          <span class="sqky-story-carousel-expand" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></span>
           <p class="sqky-story-carousel-desc">Dust flattens dark paint. With it gone, the gloss comes back. A Reset Clean cleans rather than corrects, so for swirl marks we would add an Enhancement Polish or Full Paint Correction.</p>
         </div>
-        <div class="sqky-story-carousel-card">
+        <div class="sqky-story-carousel-card" role="button" tabindex="0" aria-label="View photo: Intakes &amp; Panel Gaps">
           <img class="sqky-story-carousel-photo" width="400" height="500" src="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-side-intake.jpg" alt="Side intake and rear quarter panel of a dark grey McLaren with glossy paint" loading="lazy" decoding="async">
           <div class="sqky-story-carousel-top"><h3 class="sqky-story-carousel-title">Intakes &amp; Panel Gaps</h3></div>
+          <span class="sqky-story-carousel-expand" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></span>
           <p class="sqky-story-carousel-desc">Side intakes and panel lines collect dust that a quick wash skips. Cleaned, the bodywork reads clean along the whole side of the car.</p>
         </div>
-        <div class="sqky-story-carousel-card">
+        <div class="sqky-story-carousel-card" role="button" tabindex="0" aria-label="View photo: Badge &amp; Bonnet">
           <img class="sqky-story-carousel-photo" width="400" height="500" src="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-bonnet-badge.jpg" alt="McLaren badge on the glossy dark bonnet with reflected strip light" loading="lazy" decoding="async">
           <div class="sqky-story-carousel-top"><h3 class="sqky-story-carousel-title">Badge &amp; Bonnet</h3></div>
+          <span class="sqky-story-carousel-expand" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></span>
           <p class="sqky-story-carousel-desc">Dust settles hardest around badges and edges. Cleaned, the bonnet gives a clear reflection of the lights above.</p>
         </div>
-        <div class="sqky-story-carousel-card">
+        <div class="sqky-story-carousel-card" role="button" tabindex="0" aria-label="View photo: Rear Badge &amp; Diffuser">
           <img class="sqky-story-carousel-photo" width="400" height="500" src="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-rear-badge.jpg" alt="Chrome McLaren badge on the rear of a dark grey McLaren above the diffuser" loading="lazy" decoding="async">
           <div class="sqky-story-carousel-top"><h3 class="sqky-story-carousel-title">Rear Badge &amp; Diffuser</h3></div>
+          <span class="sqky-story-carousel-expand" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></span>
           <p class="sqky-story-carousel-desc">Chrome and tight rear corners need slow, careful work. The badge now sits on clean paint instead of in a ring of dust.</p>
         </div>
-        <div class="sqky-story-carousel-card">
+        <div class="sqky-story-carousel-card" role="button" tabindex="0" aria-label="View photo: Roof &amp; Rear Deck">
           <img class="sqky-story-carousel-photo" width="400" height="500" src="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-rear-overhead.jpg" alt="Overhead rear three-quarter view of a dark grey McLaren with glossy roof and black wheels" loading="lazy" decoding="async">
           <div class="sqky-story-carousel-top"><h3 class="sqky-story-carousel-title">Roof &amp; Rear Deck</h3></div>
+          <span class="sqky-story-carousel-expand" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></span>
           <p class="sqky-story-carousel-desc">From above you see every surface at once: roof, glass and rear deck. All of it was cleaned, so nothing looks missed from any angle.</p>
         </div>
-        <div class="sqky-story-carousel-card">
+        <div class="sqky-story-carousel-card" role="button" tabindex="0" aria-label="View photo: Exhaust &amp; Rear Quarter">
           <img class="sqky-story-carousel-photo" width="400" height="500" src="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-rear-quarter-exhaust.jpg" alt="Rear quarter of a dark grey McLaren showing round exhaust tip and black alloy wheel" loading="lazy" decoding="async">
           <div class="sqky-story-carousel-top"><h3 class="sqky-story-carousel-title">Exhaust &amp; Rear Quarter</h3></div>
+          <span class="sqky-story-carousel-expand" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></span>
           <p class="sqky-story-carousel-desc">The round exhaust tip and rear quarter were cleaned together. If the metal needs more, exhaust polishing can be added to a visit.</p>
         </div>
-        <div class="sqky-story-carousel-card">
+        <div class="sqky-story-carousel-card" role="button" tabindex="0" aria-label="View photo: Lights &amp; Lenses">
           <img class="sqky-story-carousel-photo" width="400" height="500" src="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-rear-tail-light.jpg" alt="Illuminated red tail light on the rear of a dark grey McLaren with polished bodywork" loading="lazy" decoding="async">
           <div class="sqky-story-carousel-top"><h3 class="sqky-story-carousel-title">Lights &amp; Lenses</h3></div>
+          <span class="sqky-story-carousel-expand" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></span>
           <p class="sqky-story-carousel-desc">Clean lenses and clean paint around them keep the rear of the car looking sharp, day or night.</p>
         </div>
-        <div class="sqky-story-carousel-card">
+        <div class="sqky-story-carousel-card" role="button" tabindex="0" aria-label="View photo: Rear Glass &amp; Finish">
           <img class="sqky-story-carousel-photo" width="400" height="500" src="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-rear-end.jpg" alt="Rear end of a dark grey McLaren showing exhaust tip and rear glass reflections" loading="lazy" decoding="async">
           <div class="sqky-story-carousel-top"><h3 class="sqky-story-carousel-title">Rear Glass &amp; Finish</h3></div>
+          <span class="sqky-story-carousel-expand" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></span>
           <p class="sqky-story-carousel-desc">The last pass over the rear glass, exhaust and bodywork makes sure there is no dust left sitting in the lines.</p>
         </div>
-        <div class="sqky-story-carousel-card">
+        <div class="sqky-story-carousel-card" role="button" tabindex="0" aria-label="View photo: Cockpit Clean">
           <img class="sqky-story-carousel-photo" width="400" height="500" src="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-interior-cockpit.jpg" alt="McLaren interior with cream and black leather, steering wheel and centre display" loading="lazy" decoding="async">
           <div class="sqky-story-carousel-top"><h3 class="sqky-story-carousel-title">Cockpit Clean</h3></div>
+          <span class="sqky-story-carousel-expand" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></span>
           <p class="sqky-story-carousel-desc">Leather, trim, screen and steering wheel were cleaned, so the cream and black cabin feels fresh the moment the door opens.</p>
         </div>
-        <div class="sqky-story-carousel-card">
+        <div class="sqky-story-carousel-card" role="button" tabindex="0" aria-label="View photo: Seats &amp; Leather">
           <img class="sqky-story-carousel-photo" width="400" height="500" src="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-driver-seat.jpg" alt="Open McLaren driver door showing black leather seat, steering wheel and cream interior trim" loading="lazy" decoding="async">
           <div class="sqky-story-carousel-top"><h3 class="sqky-story-carousel-title">Seats &amp; Leather</h3></div>
+          <span class="sqky-story-carousel-expand" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></span>
           <p class="sqky-story-carousel-desc">The driver's seat and sill take the most wear. A leather balm treatment can be added to keep the leather conditioned between cleans.</p>
         </div>
-        <div class="sqky-story-carousel-card">
+        <div class="sqky-story-carousel-card" role="button" tabindex="0" aria-label="View photo: Console &amp; Controls">
           <img class="sqky-story-carousel-photo" width="400" height="500" src="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-centre-console.jpg" alt="McLaren centre console with gear controls and black leather seats with cream trim" loading="lazy" decoding="async">
           <div class="sqky-story-carousel-top"><h3 class="sqky-story-carousel-title">Console &amp; Controls</h3></div>
+          <span class="sqky-story-carousel-expand" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></span>
           <p class="sqky-story-carousel-desc">Controls and console surfaces were cleaned, including the gaps around buttons where dust collects and a quick wipe does not reach.</p>
         </div>
-        <div class="sqky-story-carousel-card">
+        <div class="sqky-story-carousel-card" role="button" tabindex="0" aria-label="View photo: Door Panels &amp; Speakers">
           <img class="sqky-story-carousel-photo" width="400" height="500" src="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-door-speaker.jpg" alt="McLaren door speaker grille set in clean cream leather door panel" loading="lazy" decoding="async">
           <div class="sqky-story-carousel-top"><h3 class="sqky-story-carousel-title">Door Panels &amp; Speakers</h3></div>
+          <span class="sqky-story-carousel-expand" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></span>
           <p class="sqky-story-carousel-desc">Dust in small details like speaker grilles and panel edges is what makes a cabin look uncared for. Our Concierge Care plans keep it at this standard between visits.</p>
         </div>
       </div>
@@ -154,6 +196,76 @@
       index = dx < 0 ? Math.min(maxIndex(), index + 1) : Math.max(0, index - 1);
       update();
     }, { passive:true });
+    var n = cards.length;
+    var data = cards.map(function(c){ var im = c.querySelector('img'); return { src: im.getAttribute('src'), alt: im.getAttribute('alt') || '', title: c.querySelector('h3').textContent, desc: c.querySelector('p').textContent }; });
+    var lb = null, cur = 0, lastFocus = null, lbImg, lbTitle, lbDesc, lbCount, lbClose;
+    var ICON_L = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>';
+    var ICON_R = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>';
+    var ICON_X = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
+    function show(i){
+      cur = (i + n) % n;
+      var d = data[cur];
+      lbImg.src = d.src; lbImg.alt = d.alt;
+      lbTitle.textContent = d.title; lbDesc.textContent = d.desc;
+      lbCount.textContent = (cur + 1) + ' / ' + n;
+      [1, -1].forEach(function(k){ var pre = new Image(); pre.src = data[(cur + k + n) % n].src; });
+    }
+    function onKey(e){
+      if (e.key === 'Escape') { closeLb(); }
+      else if (e.key === 'ArrowLeft') { show(cur - 1); }
+      else if (e.key === 'ArrowRight') { show(cur + 1); }
+    }
+    function buildLb(){
+      lb = document.createElement('div');
+      lb.className = 'sqky-story-lb';
+      lb.setAttribute('role', 'dialog');
+      lb.setAttribute('aria-modal', 'true');
+      lb.setAttribute('aria-label', 'Photo viewer');
+      lb.innerHTML = '<button type="button" class="sqky-story-lb-btn sqky-story-lb-close" aria-label="Close">' + ICON_X + '</button>' +
+        '<button type="button" class="sqky-story-lb-btn sqky-story-lb-prev" aria-label="Previous photo">' + ICON_L + '</button>' +
+        '<button type="button" class="sqky-story-lb-btn sqky-story-lb-next" aria-label="Next photo">' + ICON_R + '</button>' +
+        '<figure class="sqky-story-lb-fig"><img class="sqky-story-lb-img" alt="" width="1200" height="800"><figcaption class="sqky-story-lb-cap"><h3 class="sqky-story-lb-title"></h3><p class="sqky-story-lb-desc"></p><span class="sqky-story-lb-count"></span></figcaption></figure>';
+      document.body.appendChild(lb);
+      lbImg = lb.querySelector('.sqky-story-lb-img');
+      lbTitle = lb.querySelector('.sqky-story-lb-title');
+      lbDesc = lb.querySelector('.sqky-story-lb-desc');
+      lbCount = lb.querySelector('.sqky-story-lb-count');
+      lbClose = lb.querySelector('.sqky-story-lb-close');
+      lbClose.addEventListener('click', closeLb);
+      lb.querySelector('.sqky-story-lb-prev').addEventListener('click', function(){ show(cur - 1); });
+      lb.querySelector('.sqky-story-lb-next').addEventListener('click', function(){ show(cur + 1); });
+      lb.addEventListener('click', function(e){ if (e.target === lb) closeLb(); });
+      var sx = 0, sy = 0, sw = false;
+      lb.addEventListener('touchstart', function(e){ if (!e.touches || e.touches.length !== 1) return; sw = true; sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive:true });
+      lb.addEventListener('touchend', function(e){
+        if (!sw) return; sw = false;
+        var dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
+        if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
+        show(dx < 0 ? cur + 1 : cur - 1);
+      }, { passive:true });
+    }
+    function openLb(i){
+      if (!lb) buildLb();
+      lastFocus = document.activeElement;
+      show(i);
+      lb.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      document.addEventListener('keydown', onKey);
+      lbClose.focus();
+    }
+    function closeLb(){
+      if (!lb) return;
+      lb.classList.remove('is-open');
+      document.body.style.overflow = '';
+      document.removeEventListener('keydown', onKey);
+      index = Math.min(cur, maxIndex());
+      update();
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+    cards.forEach(function(c, i){
+      c.addEventListener('click', function(){ openLb(i); });
+      c.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLb(i); } });
+    });
     setTimeout(function(){ root.classList.add('is-ready'); }, 500);
   });
 })();
