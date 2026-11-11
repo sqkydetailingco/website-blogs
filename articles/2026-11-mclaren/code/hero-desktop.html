@@ -1,199 +1,62 @@
-<!--
-SQKY ARTICLE HERO - DESKTOP (poster + play, 9:16 portrait)
-Placeholders (replace before pasting into Squarespace): McLaren GT Reset Clean<br>in Glen Iris  A dusty McLaren GT, an owner tired of inconsistent corner car wash results, and a <strong>3.5-hour Reset Clean</strong> inside and out. Done on-site by <strong>SQKY</strong> in a Glen Iris basement car park.  https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-hero-poster.jpg  Dark grey McLaren GT with dihedral door raised and orange brake caliper in a basement car park  https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/video/sqky-reset-clean-mclaren-gt-hero.mp4  Play video: McLaren GT Reset Clean in Glen Iris  SQKY article hero - McLaren GT Reset Clean, Glen Iris
-Shown >768px only. Poster is an <img> (alt text for SEO/accessibility); the video is NOT loaded until Play is clicked.
--->
 <style>
 #sqky-hero-desktopview-webhero{ display:block; }
 @media (max-width: 768px){ #sqky-hero-desktopview-webhero{ display:none; } }
-#sqky-hero-desktopview-webhero,
-#sqky-hero-desktopview-webhero *{ box-sizing:border-box; }
-#sqky-hero-desktopview-webhero{
-  font-family:-apple-system,BlinkMacSystemFont,sans-serif;
-  margin:0 !important;
-  padding:0 !important;
-  position:relative;
-  isolation:isolate;
-  --media-w: clamp(300px, 27vw, 420px);
-  --r: 26px;
-  --overlap: 0px;
-  --padx: 40px;
-  --pady: 36px;
-}
-#sqky-hero-desktopview-webhero .sqkyStage{
-  position:relative;
-  width:100%;
-  margin:0 !important;
-  padding:0 !important;
-  background:transparent;
-  isolation:isolate;
-}
-#sqky-hero-desktopview-webhero .sqkyGrid{
-  position:relative;
-  width:100%;
-  display:grid;
-  grid-template-columns: var(--media-w) minmax(0, 1fr);
-  column-gap:18px;
-  align-items:stretch;
-  margin:0;
-  padding:0;
-}
-/* 9:16 portrait media */
-#sqky-hero-desktopview-webhero .sqkyMedia{
-  position:relative;
-  width:var(--media-w);
-  aspect-ratio:9 / 16;
-  overflow:hidden;
-  border-radius:var(--r);
-  background:#0b0b0b;
-  z-index:10;
-}
-#sqky-hero-desktopview-webhero .sqkyMedia img{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-  margin:0 !important;
-}
-#sqky-hero-desktopview-webhero .sqkyPlay{
-  position:absolute;
-  left:50%;
-  top:50%;
-  width:84px;
-  height:84px;
-  margin:-42px 0 0 -42px;
-  padding:0;
-  border:0;
-  border-radius:50%;
-  background:rgba(242,242,211,0.95);
-  box-shadow:0 12px 32px rgba(0,0,0,0.45);
-  cursor:pointer;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  transition:transform 140ms ease, background 140ms ease;
-  z-index:2;
-}
-#sqky-hero-desktopview-webhero .sqkyPlay:hover{ transform:scale(1.07); background:#f2f2d3; }
-#sqky-hero-desktopview-webhero .sqkyPlay:focus-visible{ outline:3px solid #ffffff; outline-offset:3px; }
-#sqky-hero-desktopview-webhero .sqkyPlay svg{ width:34px; height:34px; margin-left:5px; fill:#0b0b0b; display:block; }
-#sqky-hero-desktopview-webhero .sqkyCardCol{
-  position:relative;
-  z-index:20;
-  display:flex;
-  align-items:stretch;
-  margin-left:calc(var(--overlap) * -1);
-  padding:0;
-}
-#sqky-hero-desktopview-webhero .sqkyCard{
-  width:100%;
-  overflow:visible;
-  border-radius:var(--r);
-  background:rgba(255,255,255,0.97);
-  padding:var(--pady) var(--padx) 30px calc(var(--padx) + var(--overlap));
-  box-shadow:0 16px 42px rgba(0,0,0,0.22), inset 0 0 0 1px rgba(0,0,0,0.05);
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-  display:flex;
-  flex-direction:column;
-}
-#sqky-hero-desktopview-webhero .sqkyH1{
-  margin:0;
-  font-weight:600;
-  line-height:0.95;
-  letter-spacing:-0.03em;
-  color:#0b0b0b;
-  font-size:clamp(44px, 4.2vw, 64px);
-}
-#sqky-hero-desktopview-webhero .sqkyCopy{
-  margin:28px 0 0 0;
-  max-width:560px;
-  color:#0b0b0b;
-  line-height:1.55;
-  font-size:18px;
-}
+#sqky-hero-desktopview-webhero, #sqky-hero-desktopview-webhero *{ box-sizing:border-box; }
+#sqky-hero-desktopview-webhero{ font-family:-apple-system,BlinkMacSystemFont,sans-serif; margin:0 !important; padding:0 !important; position:relative; isolation:isolate; --media-w: clamp(300px, 27vw, 420px); }
+#sqky-hero-desktopview-webhero .sqkyStage{ width:100%; margin:0; padding:48px 40px; background:#0b0b0b; }
+#sqky-hero-desktopview-webhero .sqkyGrid{ width:100%; max-width:1240px; margin:0 auto; display:grid; grid-template-columns:minmax(0, 1fr) var(--media-w); column-gap:64px; align-items:center; }
+#sqky-hero-desktopview-webhero .sqkyText{ min-width:0; }
+#sqky-hero-desktopview-webhero .sqkyH1{ margin:0; font-size:48px; font-weight:600; line-height:0.95; letter-spacing:-0.03em; color:#f2f2d3; }
+#sqky-hero-desktopview-webhero .sqkyCopy{ margin:32px 0 0; max-width:620px; color:#f2f2d3; font-size:20px; line-height:1.6; }
+#sqky-hero-desktopview-webhero .sqkyCopy p{ margin:0 0 16px; color:#f2f2d3; }
 #sqky-hero-desktopview-webhero .sqkyCopy strong{ font-weight:700; }
-#sqky-hero-desktopview-webhero .sqkyCtas{
-  margin-top:auto;
-  padding-top:24px;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-  max-width:560px;
-  flex-shrink:0;
-}
-#sqky-hero-desktopview-webhero .sqkyBtn{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:100%;
-  padding:14px 16px;
-  border-radius:999px;
-  text-decoration:none;
-  font-weight:700;
-  font-size:15px;
-  letter-spacing:0.01em;
-  border:1px solid transparent;
-  box-shadow:0 10px 18px rgba(0,0,0,0.14);
-  transition:transform 120ms ease, opacity 120ms ease;
-}
+#sqky-hero-desktopview-webhero .sqkyCtas{ margin-top:28px; display:flex; flex-direction:row; gap:14px; flex-wrap:wrap; }
+#sqky-hero-desktopview-webhero .sqkyBtn{ display:flex; align-items:center; justify-content:center; min-width:190px; padding:14px 26px; border-radius:999px; text-decoration:none; font-weight:700; font-size:15px; letter-spacing:0.01em; border:1px solid transparent; }
 #sqky-hero-desktopview-webhero .sqkyBtn:hover{ opacity:0.92; }
-#sqky-hero-desktopview-webhero .sqkyBtn:active{ transform:translateY(1px); }
-#sqky-hero-desktopview-webhero .sqkyBtnQuote{ background:#f2f2d3; color:#0b0b0b; border-color:rgba(0,0,0,0.08); }
-#sqky-hero-desktopview-webhero .sqkyBtnCall{ background:#0b0b0b !important; color:#ffffff !important; border:1px solid rgba(255,255,255,0.08); }
-
-/* Full-screen video overlay (appended to <body> on first Play click) */
-.sqkyVODesktop{
-  position:fixed; inset:0; z-index:2147483000;
-  background:#000; display:none; align-items:center; justify-content:center;
-}
+#sqky-hero-desktopview-webhero .sqkyBtnQuote{ background:#f2f2d3; color:#0b0b0b; }
+#sqky-hero-desktopview-webhero .sqkyBtnCall{ background:transparent !important; color:#f2f2d3 !important; border-color:rgba(242,242,211,0.4); }
+#sqky-hero-desktopview-webhero .sqkyMedia{ position:relative; width:var(--media-w); aspect-ratio:9 / 16; overflow:hidden; border-radius:26px; background:#1a1a1a; }
+#sqky-hero-desktopview-webhero .sqkyMedia img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; margin:0 !important; }
+#sqky-hero-desktopview-webhero .sqkyPlay{ position:absolute; left:50%; top:50%; width:84px; height:84px; margin:-42px 0 0 -42px; padding:0; border:0; border-radius:50%; background:rgba(242,242,211,0.95); box-shadow:0 12px 32px rgba(0,0,0,0.45); cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:2; }
+#sqky-hero-desktopview-webhero .sqkyPlay:hover{ background:#f2f2d3; }
+#sqky-hero-desktopview-webhero .sqkyPlay:focus-visible{ outline:3px solid #ffffff; outline-offset:3px; }
+#sqky-hero-desktopview-webhero .sqkyPlay svg{ width:32px; height:32px; margin:0; fill:#0b0b0b; display:block; flex:none; }
+.sqkyVODesktop{ position:fixed; inset:0; z-index:2147483000; background:#000; display:none; align-items:center; justify-content:center; }
 .sqkyVODesktop.is-open{ display:flex; }
 .sqkyVODesktop video{ width:100%; height:100%; object-fit:contain; background:#000; outline:none; }
-.sqkyVODesktop .sqkyVOClose{
-  position:absolute; top:18px; right:18px; z-index:2;
-  width:48px; height:48px; border:0; border-radius:50%;
-  background:rgba(242,242,211,0.95); color:#0b0b0b;
-  font-size:30px; line-height:1; cursor:pointer;
-  display:flex; align-items:center; justify-content:center;
-}
-.sqkyVODesktop .sqkyVOClose:focus-visible{ outline:3px solid #ffffff; outline-offset:3px; }
-</style>
+.sqkyVODesktop .sqkyVOClose{ position:absolute; top:max(16px, env(safe-area-inset-top)); right:16px; z-index:2; width:46px; height:46px; border:0; border-radius:50%; background:rgba(242,242,211,0.95); color:#0b0b0b; font-size:30px; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center; }</style>
 <section id="sqky-hero-desktopview-webhero" aria-label="SQKY article hero - McLaren GT Reset Clean, Glen Iris">
   <div class="sqkyStage">
     <div class="sqkyGrid">
-      <div class="sqkyMedia">
-        <img src="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-hero-poster.jpg" alt="Dark grey McLaren GT with dihedral door raised and orange brake caliper in a basement car park" width="1080" height="1920" loading="lazy" decoding="async">
-        <button type="button" class="sqkyPlay" data-sqky-play data-video="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/video/sqky-reset-clean-mclaren-gt-hero.mp4" data-poster="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-hero-poster.jpg" aria-label="Play video: McLaren GT Reset Clean in Glen Iris">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 3.5v17a1 1 0 0 0 1.52.85l14-8.5a1 1 0 0 0 0-1.7l-14-8.5A1 1 0 0 0 6 3.5z"/></svg>
-        </button>
-      </div>
-      <div class="sqkyCardCol">
-        <div class="sqkyCard">
-          <h1 class="sqkyH1">McLaren GT Reset Clean<br>in Glen Iris</h1>
-          <p class="sqkyCopy">
-            A dusty McLaren GT, an owner tired of inconsistent corner car wash results, and a <strong>3.5-hour Reset Clean</strong> inside and out. Done on-site by <strong>SQKY</strong> in a Glen Iris basement car park.
-          </p>
-          <div class="sqkyCtas">
-            <a class="sqkyBtn sqkyBtnQuote" href="https://www.sqky.com.au/estimate">Get Your Estimate</a>
-            <a class="sqkyBtn sqkyBtnCall" href="tel:+61458669051">Call Us</a>
-          </div>
+      <div class="sqkyText">
+        <h1 class="sqkyH1">Dusty to Dialled In</h1>
+        <div class="sqkyCopy">
+          <p>This McLaren GT in Glen Iris came to us <strong>dusty</strong>, and its owner had a familiar frustration: a corner car wash that delivered <strong>inconsistent results</strong>. Some visits were fine, others weren't, and there was never any telling which one they would get.</p>
+          <p>So they booked our Reset Clean, an interior and exterior detail, and we came to them. 3.5 hours on site, one car, and a clean they could finally count on.</p>
+          <p>This is how the day went, from the first look at the dust to the final wipe of the cabin.</p>
         </div>
+        <div class="sqkyCtas">
+          <a class="sqkyBtn sqkyBtnQuote" href="https://www.sqky.com.au/estimate">Get Your Estimate</a>
+          <a class="sqkyBtn sqkyBtnCall" href="tel:+61458669051">Call Us</a>
+        </div>
+      </div>
+      <div class="sqkyMedia">
+        <img src="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-hero-poster.jpg" alt="Dark grey McLaren GT with dihedral door raised and orange brake caliper" width="1080" height="1920" loading="lazy" decoding="async">
+        <button type="button" class="sqkyPlay" data-sqky-play data-video="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/video/sqky-reset-clean-mclaren-gt-hero.mp4" data-poster="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-hero-poster.jpg" aria-label="Play video: McLaren GT Reset Clean in Glen Iris">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5.2v13.6a1 1 0 0 0 1.5.86l11.3-6.8a1 1 0 0 0 0-1.72L9.5 4.34A1 1 0 0 0 8 5.2z"/></svg>
+        </button>
       </div>
     </div>
   </div>
 </section>
 <script>
 (function(){
-  var root = document.getElementById('sqky-hero-desktopview-webhero');
+  var root = document.querySelector('#sqky-hero-desktopview-webhero');
   if (!root) return;
   var btn = root.querySelector('[data-sqky-play]');
   if (!btn) return;
   var overlay = null, vid = null, lastFocus = null;
-
   function isFs(){ return document.fullscreenElement || document.webkitFullscreenElement; }
-
   function build(){
     overlay = document.createElement('div');
     overlay.className = 'sqkyVODesktop';
@@ -209,7 +72,6 @@ Shown >768px only. Poster is an <img> (alt text for SEO/accessibility); the vide
     document.addEventListener('fullscreenchange', function(){ if (overlay.classList.contains('is-open') && !isFs()) close(); });
     document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && overlay.classList.contains('is-open')) close(); });
   }
-
   function open(){
     lastFocus = document.activeElement;
     if (!overlay) build();
@@ -224,18 +86,14 @@ Shown >768px only. Poster is an <img> (alt text for SEO/accessibility); the vide
     } catch (e) {}
     overlay.querySelector('.sqkyVOClose').focus();
   }
-
   function close(){
     if (!overlay || !overlay.classList.contains('is-open')) return;
     vid.pause();
     overlay.classList.remove('is-open');
     document.documentElement.style.overflow = '';
-    try {
-      if (isFs()) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); }
-    } catch (e) {}
+    try { if (isFs()) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); } } catch (e) {}
     if (lastFocus && lastFocus.focus) lastFocus.focus();
   }
-
   btn.addEventListener('click', open);
 })();
 </script>
