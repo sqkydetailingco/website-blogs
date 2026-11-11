@@ -1,0 +1,899 @@
+<style>
+.sqky-carousel-why-drivers-choose-us-wrap{ width:100%; font-family:-apple-system,BlinkMacSystemFont,sans-serif; margin:0 !important; padding:0 !important; }
+.sqky-carousel-why-drivers-choose-us-wrap, .sqky-carousel-why-drivers-choose-us-wrap *{ box-sizing:border-box; }
+.sqky-carousel-why-drivers-choose-us{
+  --sqky-carousel-why-drivers-choose-us-h: 460px;
+  --sqky-carousel-why-drivers-choose-us-visible: 3.15;
+  --sqky-carousel-why-drivers-choose-us-gap: 14px;
+  --sqky-carousel-why-drivers-choose-us-radius: 18px;
+  position: relative;
+}
+.sqky-carousel-why-drivers-choose-us-stage{
+  position: relative;
+  overflow: hidden;
+}
+.sqky-carousel-why-drivers-choose-us-track{
+  display:flex;
+  will-change: transform;
+  transition: transform 500ms cubic-bezier(.2,.8,.2,1);
+}
+.sqky-carousel-why-drivers-choose-us-card{
+  flex: 0 0 calc(100% / var(--sqky-carousel-why-drivers-choose-us-visible) - var(--sqky-carousel-why-drivers-choose-us-gap));
+  width: calc(100% / var(--sqky-carousel-why-drivers-choose-us-visible) - var(--sqky-carousel-why-drivers-choose-us-gap));
+  height: var(--sqky-carousel-why-drivers-choose-us-h);
+  margin-right: var(--sqky-carousel-why-drivers-choose-us-gap);
+  position: relative;
+  perspective: 1400px;
+  -webkit-perspective: 1400px;
+}
+.sqky-carousel-why-drivers-choose-us-card:last-child{ margin-right: 0; }
+.sqky-carousel-why-drivers-choose-us-flip{
+  position:absolute;
+  inset:0;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transition: transform 650ms cubic-bezier(.4,.1,.2,1);
+  will-change: transform;
+}
+.sqky-carousel-why-drivers-choose-us-card.is-flipped .sqky-carousel-why-drivers-choose-us-flip{ transform: rotateY(180deg); }
+.sqky-carousel-why-drivers-choose-us-face{
+  position:absolute;
+  inset:0;
+  border-radius: var(--sqky-carousel-why-drivers-choose-us-radius);
+  overflow:hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  background-color:#000;
+}
+.sqky-carousel-why-drivers-choose-us-face-front{
+  cursor: pointer;
+}
+.sqky-carousel-why-drivers-choose-us-photo{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 0;
+  filter: contrast(1.08) saturate(0.85) brightness(0.97);
+}
+.sqky-carousel-why-drivers-choose-us-overlay-extra{
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+.sqky-carousel-why-drivers-choose-us-face-front::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index: 2;
+  pointer-events:none;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.78) 0%,
+    rgba(0,0,0,0.45) 22%,
+    rgba(0,0,0,0.1) 42%,
+    rgba(0,0,0,0.1) 58%,
+    rgba(0,0,0,0.5) 80%,
+    rgba(0,0,0,0.8) 100%
+  );
+}
+.sqky-carousel-why-drivers-choose-us-face-front--soft::before{
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.62) 0%,
+    rgba(0,0,0,0.34) 22%,
+    rgba(0,0,0,0.08) 42%,
+    rgba(0,0,0,0.08) 58%,
+    rgba(0,0,0,0.4) 80%,
+    rgba(0,0,0,0.65) 100%
+  );
+}
+.sqky-carousel-why-drivers-choose-us-text{
+  position: absolute;
+  top: 22px;
+  left: 20px;
+  right: 20px;
+  z-index: 3;
+  color: #fff;
+}
+.sqky-carousel-why-drivers-choose-us-title{
+  font-size: 32px;
+  font-weight: 550 !important;
+  line-height: 1.2;
+  margin: 0;
+}
+.sqky-carousel-why-drivers-choose-us-caption{
+  position: absolute;
+  left: 20px;
+  right: 60px;
+  bottom: 16px;
+  z-index: 3;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.35;
+  pointer-events: none;
+}
+.sqky-carousel-why-drivers-choose-us-caption-vehicle{
+  display:block;
+  font-size: 14px;
+  color: rgba(255,255,255,0.9);
+}
+.sqky-carousel-why-drivers-choose-us-caption-service{
+  display:block;
+  font-size: 13px;
+  color: rgba(255,255,255,0.65);
+}
+.sqky-carousel-why-drivers-choose-us-plus{
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  z-index: 3;
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.92);
+  border: 0;
+  cursor: pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#1d1d1f;
+  transition: transform 150ms ease, background 150ms ease;
+}
+.sqky-carousel-why-drivers-choose-us-plus:hover{ background:#fff; transform: scale(1.06); }
+.sqky-carousel-why-drivers-choose-us-plus svg{ width:16px; height:16px; }
+.sqky-carousel-why-drivers-choose-us-plus--watch{
+  width: auto;
+  padding: 0 16px 0 14px;
+  gap: 6px;
+}
+.sqky-carousel-why-drivers-choose-us-plus--watch span{
+  font-size: 13px;
+  font-weight: 650;
+  color: #1d1d1f;
+}
+.sqky-carousel-why-drivers-choose-us-face-back{
+  background: #fff;
+  transform: rotateY(180deg) translateZ(0);
+  -webkit-transform: rotateY(180deg) translateZ(0);
+}
+.sqky-carousel-why-drivers-choose-us-back-close{
+  position:absolute;
+  top:14px;
+  right:14px;
+  z-index:5;
+  width:32px;
+  height:32px;
+  border-radius:999px;
+  background: rgba(0,0,0,0.06);
+  border:0;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#1d1d1f;
+  transition: background 150ms ease;
+}
+.sqky-carousel-why-drivers-choose-us-back-close:hover{ background: rgba(0,0,0,0.12); }
+.sqky-carousel-why-drivers-choose-us-back-close svg{ width:14px; height:14px; }
+.sqky-carousel-why-drivers-choose-us-back-inner{
+  position:absolute;
+  inset:0;
+  overflow-y:auto;
+  padding: 22px 20px 22px;
+  display:flex;
+  flex-direction:column;
+  color:#1d1d1f;
+}
+.sqky-carousel-why-drivers-choose-us-back-title{
+  font-size: 32px;
+  font-weight:700;
+  line-height:1.2;
+  margin: 0 38px 22px 0;
+  flex-shrink:0;
+}
+.sqky-carousel-why-drivers-choose-us-back-video{
+  position:relative;
+  border-radius:10px;
+  overflow:hidden;
+  background:#000;
+  margin-top:14px;
+  flex: 1 1 auto;
+  min-height:0;
+}
+.sqky-carousel-why-drivers-choose-us-back-video video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+}
+.sqky-carousel-why-drivers-choose-us-back-video-play{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: rgba(0,0,0,0.24);
+  border:0;
+  cursor:pointer;
+  padding:0;
+  transition: background 150ms ease;
+}
+.sqky-carousel-why-drivers-choose-us-back-video-play:hover{ background: rgba(0,0,0,0.36); }
+.sqky-carousel-why-drivers-choose-us-back-video-play.is-playing{ display:none; }
+.sqky-carousel-why-drivers-choose-us-back-video-play-icon{
+  width:42px;
+  height:42px;
+  border-radius:999px;
+  background: rgba(255,255,255,0.95);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition: transform 150ms ease, background 150ms ease;
+}
+.sqky-carousel-why-drivers-choose-us-back-video-play:hover .sqky-carousel-why-drivers-choose-us-back-video-play-icon{ background:#fff; transform: scale(1.06); }
+.sqky-carousel-why-drivers-choose-us-back-video-play-icon svg{ width:16px; height:16px; margin-left:2px; }
+.sqky-carousel-why-drivers-choose-us-back-desc{
+  font-size: 16px;
+  line-height:1.55;
+  color: rgba(0,0,0,0.72);
+  margin:0;
+  flex-shrink:0;
+}
+.sqky-carousel-why-drivers-choose-us-back-desc a{ color:#1d1d1f; font-weight:600; text-decoration:underline; }
+.sqky-carousel-why-drivers-choose-us-back-cta{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  width:100%;
+  height:38px;
+  margin-top:auto;
+  flex-shrink:0;
+  border-radius:999px;
+  border:0;
+  background: #1d1d1f;
+  color:#fff;
+  font-size:13px;
+  font-weight:650;
+  text-decoration:none;
+  transition: background 150ms ease;
+}
+.sqky-carousel-why-drivers-choose-us-back-cta:hover{ background:#000; }
+.sqky-carousel-why-drivers-choose-us-back-cta svg{ width:12px; height:12px; }
+.sqky-carousel-why-drivers-choose-us-back-ctas{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  margin-top:auto;
+  flex-shrink:0;
+}
+.sqky-carousel-why-drivers-choose-us-back-ctas .sqky-carousel-why-drivers-choose-us-back-cta{ margin-top:0; }
+.sqky-carousel-why-drivers-choose-us-back-cta--secondary{
+  background: transparent;
+  color:#1d1d1f;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.14);
+}
+.sqky-carousel-why-drivers-choose-us-back-cta--secondary:hover{ background: rgba(0,0,0,0.04); }
+.sqky-carousel-why-drivers-choose-us-nav{
+  display:flex;
+  justify-content:flex-end;
+  gap: 10px;
+  margin-top: 16px;
+}
+.sqky-carousel-why-drivers-choose-us-arrow{
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 0;
+  background: #e8e8ed;
+  color: #6e6e73;
+  cursor: pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition: background 150ms ease, color 150ms ease;
+}
+.sqky-carousel-why-drivers-choose-us-arrow:hover{ background:#d6d6db; color:#1d1d1f; }
+.sqky-carousel-why-drivers-choose-us-arrow[disabled]{ opacity:0.45; pointer-events:none; }
+.sqky-carousel-why-drivers-choose-us-arrow svg{ width:15px; height:15px; }
+@media (max-width: 1024px){
+  .sqky-carousel-why-drivers-choose-us{ --sqky-carousel-why-drivers-choose-us-h: 420px; --sqky-carousel-why-drivers-choose-us-visible: 2.25; --sqky-carousel-why-drivers-choose-us-gap: 12px; }
+}
+@media (max-width: 640px){
+  .sqky-carousel-why-drivers-choose-us{ --sqky-carousel-why-drivers-choose-us-h: 500px; --sqky-carousel-why-drivers-choose-us-visible: 1.15; --sqky-carousel-why-drivers-choose-us-gap: 10px; }
+  .sqky-carousel-why-drivers-choose-us-title{ font-size: 28px; font-weight: 700 !important; }
+  .sqky-carousel-why-drivers-choose-us-back-title{ font-size: 28px; }
+}
+</style>
+<div class="sqky-carousel-why-drivers-choose-us-wrap" data-sqky-carousel-why-drivers-choose-us-root>
+  <div class="sqky-carousel-why-drivers-choose-us" data-sqky-carousel-why-drivers-choose-us>
+    <div class="sqky-carousel-why-drivers-choose-us-stage">
+      <div class="sqky-carousel-why-drivers-choose-us-track">
+        <div class="sqky-carousel-why-drivers-choose-us-card">
+          <div class="sqky-carousel-why-drivers-choose-us-flip">
+            <div class="sqky-carousel-why-drivers-choose-us-face sqky-carousel-why-drivers-choose-us-face-front">
+              <img class="sqky-carousel-why-drivers-choose-us-photo" src="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-front-three-quarter.jpg" alt="Dark grey McLaren front three-quarter with black alloy wheel and orange brake caliper in a basement car park">
+              <div class="sqky-carousel-why-drivers-choose-us-text">
+                <h3 class="sqky-carousel-why-drivers-choose-us-title">Finished and Ready to Go</h3>
+              </div>
+              <div class="sqky-carousel-why-drivers-choose-us-caption">
+                <span class="sqky-carousel-why-drivers-choose-us-caption-vehicle">McLaren GT</span>
+                <span class="sqky-carousel-why-drivers-choose-us-caption-service">Reset Clean · Exterior</span>
+              </div>
+              <button type="button" class="sqky-carousel-why-drivers-choose-us-plus" data-flip-open aria-label="Learn more — Finished and Ready to Go">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              </button>
+            </div>
+            <div class="sqky-carousel-why-drivers-choose-us-face sqky-carousel-why-drivers-choose-us-face-back">
+              <button type="button" class="sqky-carousel-why-drivers-choose-us-back-close" data-flip-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="6" y1="18" x2="18" y2="6"></line></svg></button>
+              <div class="sqky-carousel-why-drivers-choose-us-back-inner">
+                <p class="sqky-carousel-why-drivers-choose-us-back-title">Finished and Ready to Go</p>
+                <p class="sqky-carousel-why-drivers-choose-us-back-desc">The McLaren GT in a Glen Iris basement car park once the Reset Clean was done. The paint reads clean and deep, even under low garage light.</p>
+                <a class="sqky-carousel-why-drivers-choose-us-back-cta" href="https://www.sqky.com.au/estimate">Get an Instant Estimate
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sqky-carousel-why-drivers-choose-us-card">
+          <div class="sqky-carousel-why-drivers-choose-us-flip">
+            <div class="sqky-carousel-why-drivers-choose-us-face sqky-carousel-why-drivers-choose-us-face-front">
+              <img class="sqky-carousel-why-drivers-choose-us-photo" src="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-dihedral-door-front-wheel.jpg" alt="McLaren with dihedral door raised above a gloss black front wheel with orange caliper">
+              <div class="sqky-carousel-why-drivers-choose-us-text">
+                <h3 class="sqky-carousel-why-drivers-choose-us-title">Doors Up, Details In</h3>
+              </div>
+              <div class="sqky-carousel-why-drivers-choose-us-caption">
+                <span class="sqky-carousel-why-drivers-choose-us-caption-vehicle">McLaren GT</span>
+                <span class="sqky-carousel-why-drivers-choose-us-caption-service">Reset Clean · Exterior</span>
+              </div>
+              <button type="button" class="sqky-carousel-why-drivers-choose-us-plus" data-flip-open aria-label="Learn more — Doors Up, Details In">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              </button>
+            </div>
+            <div class="sqky-carousel-why-drivers-choose-us-face sqky-carousel-why-drivers-choose-us-face-back">
+              <button type="button" class="sqky-carousel-why-drivers-choose-us-back-close" data-flip-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="6" y1="18" x2="18" y2="6"></line></svg></button>
+              <div class="sqky-carousel-why-drivers-choose-us-back-inner">
+                <p class="sqky-carousel-why-drivers-choose-us-back-title">Doors Up, Details In</p>
+                <p class="sqky-carousel-why-drivers-choose-us-back-desc">With the dihedral door raised, the front wheel, caliper and sill are all on show. We clean the parts people notice and the parts they see when they open the door.</p>
+                <a class="sqky-carousel-why-drivers-choose-us-back-cta" href="https://www.sqky.com.au/estimate">Get an Instant Estimate
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sqky-carousel-why-drivers-choose-us-card">
+          <div class="sqky-carousel-why-drivers-choose-us-flip">
+            <div class="sqky-carousel-why-drivers-choose-us-face sqky-carousel-why-drivers-choose-us-face-front">
+              <img class="sqky-carousel-why-drivers-choose-us-photo" src="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-dihedral-doors-rear-wheel.jpg" alt="McLaren with both dihedral doors raised, showing black alloy rear wheel and cream interior" loading="lazy" decoding="async">
+              <div class="sqky-carousel-why-drivers-choose-us-text">
+                <h3 class="sqky-carousel-why-drivers-choose-us-title">Open Door, Clean Cabin</h3>
+              </div>
+              <div class="sqky-carousel-why-drivers-choose-us-caption">
+                <span class="sqky-carousel-why-drivers-choose-us-caption-vehicle">McLaren GT</span>
+                <span class="sqky-carousel-why-drivers-choose-us-caption-service">Reset Clean · Interior and Exterior</span>
+              </div>
+              <button type="button" class="sqky-carousel-why-drivers-choose-us-plus" data-flip-open aria-label="Learn more — Open Door, Clean Cabin">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              </button>
+            </div>
+            <div class="sqky-carousel-why-drivers-choose-us-face sqky-carousel-why-drivers-choose-us-face-back">
+              <button type="button" class="sqky-carousel-why-drivers-choose-us-back-close" data-flip-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="6" y1="18" x2="18" y2="6"></line></svg></button>
+              <div class="sqky-carousel-why-drivers-choose-us-back-inner">
+                <p class="sqky-carousel-why-drivers-choose-us-back-title">Open Door, Clean Cabin</p>
+                <p class="sqky-carousel-why-drivers-choose-us-back-desc">Both doors raised, the cream and black cabin sits beside a clean rear wheel. Reset Clean covers the interior and exterior in the same visit.</p>
+                <a class="sqky-carousel-why-drivers-choose-us-back-cta" href="https://www.sqky.com.au/estimate">Get an Instant Estimate
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sqky-carousel-why-drivers-choose-us-card">
+          <div class="sqky-carousel-why-drivers-choose-us-flip">
+            <div class="sqky-carousel-why-drivers-choose-us-face sqky-carousel-why-drivers-choose-us-face-front">
+              <img class="sqky-carousel-why-drivers-choose-us-photo" src="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-front-wheel.jpg" alt="Gloss black multi-spoke McLaren wheel with orange brake caliper and clean wheel arch" loading="lazy" decoding="async">
+              <div class="sqky-carousel-why-drivers-choose-us-text">
+                <h3 class="sqky-carousel-why-drivers-choose-us-title">Wheels and Calipers</h3>
+              </div>
+              <div class="sqky-carousel-why-drivers-choose-us-caption">
+                <span class="sqky-carousel-why-drivers-choose-us-caption-vehicle">McLaren GT</span>
+                <span class="sqky-carousel-why-drivers-choose-us-caption-service">Reset Clean · Wheels</span>
+              </div>
+              <button type="button" class="sqky-carousel-why-drivers-choose-us-plus" data-flip-open aria-label="Learn more — Wheels and Calipers">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              </button>
+            </div>
+            <div class="sqky-carousel-why-drivers-choose-us-face sqky-carousel-why-drivers-choose-us-face-back">
+              <button type="button" class="sqky-carousel-why-drivers-choose-us-back-close" data-flip-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="6" y1="18" x2="18" y2="6"></line></svg></button>
+              <div class="sqky-carousel-why-drivers-choose-us-back-inner">
+                <p class="sqky-carousel-why-drivers-choose-us-back-title">Wheels and Calipers</p>
+                <p class="sqky-carousel-why-drivers-choose-us-back-desc">Gloss black wheels and orange calipers cleaned, so road film and brake dust don&#x27;t dull the most eye-catching detail on the car.</p>
+                <a class="sqky-carousel-why-drivers-choose-us-back-cta" href="https://www.sqky.com.au/estimate">Get an Instant Estimate
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sqky-carousel-why-drivers-choose-us-card">
+          <div class="sqky-carousel-why-drivers-choose-us-flip">
+            <div class="sqky-carousel-why-drivers-choose-us-face sqky-carousel-why-drivers-choose-us-face-front">
+              <img class="sqky-carousel-why-drivers-choose-us-photo" src="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-wheel-arch.jpg" alt="Detailed black alloy wheel and wheel arch on a dark grey McLaren with reflected garage lights" loading="lazy" decoding="async">
+              <div class="sqky-carousel-why-drivers-choose-us-text">
+                <h3 class="sqky-carousel-why-drivers-choose-us-title">Wheel Arches</h3>
+              </div>
+              <div class="sqky-carousel-why-drivers-choose-us-caption">
+                <span class="sqky-carousel-why-drivers-choose-us-caption-vehicle">McLaren GT</span>
+                <span class="sqky-carousel-why-drivers-choose-us-caption-service">Reset Clean · Wheels</span>
+              </div>
+              <button type="button" class="sqky-carousel-why-drivers-choose-us-plus" data-flip-open aria-label="Learn more — Wheel Arches">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              </button>
+            </div>
+            <div class="sqky-carousel-why-drivers-choose-us-face sqky-carousel-why-drivers-choose-us-face-back">
+              <button type="button" class="sqky-carousel-why-drivers-choose-us-back-close" data-flip-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="6" y1="18" x2="18" y2="6"></line></svg></button>
+              <div class="sqky-carousel-why-drivers-choose-us-back-inner">
+                <p class="sqky-carousel-why-drivers-choose-us-back-title">Wheel Arches</p>
+                <p class="sqky-carousel-why-drivers-choose-us-back-desc">The arch and wheel face were cleaned with the rest of the exterior, so the area around the wheel matches the paint.</p>
+                <a class="sqky-carousel-why-drivers-choose-us-back-cta" href="https://www.sqky.com.au/estimate">Get an Instant Estimate
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sqky-carousel-why-drivers-choose-us-card">
+          <div class="sqky-carousel-why-drivers-choose-us-flip">
+            <div class="sqky-carousel-why-drivers-choose-us-face sqky-carousel-why-drivers-choose-us-face-front">
+              <img class="sqky-carousel-why-drivers-choose-us-photo" src="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-glossy-paint-finish.jpg" alt="Close-up of deep gloss on dark grey McLaren bodywork reflecting garage lighting" loading="lazy" decoding="async">
+              <div class="sqky-carousel-why-drivers-choose-us-text">
+                <h3 class="sqky-carousel-why-drivers-choose-us-title">Gloss Back in the Paint</h3>
+              </div>
+              <div class="sqky-carousel-why-drivers-choose-us-caption">
+                <span class="sqky-carousel-why-drivers-choose-us-caption-vehicle">McLaren GT</span>
+                <span class="sqky-carousel-why-drivers-choose-us-caption-service">Reset Clean · Paint</span>
+              </div>
+              <button type="button" class="sqky-carousel-why-drivers-choose-us-plus" data-flip-open aria-label="Learn more — Gloss Back in the Paint">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              </button>
+            </div>
+            <div class="sqky-carousel-why-drivers-choose-us-face sqky-carousel-why-drivers-choose-us-face-back">
+              <button type="button" class="sqky-carousel-why-drivers-choose-us-back-close" data-flip-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="6" y1="18" x2="18" y2="6"></line></svg></button>
+              <div class="sqky-carousel-why-drivers-choose-us-back-inner">
+                <p class="sqky-carousel-why-drivers-choose-us-back-title">Gloss Back in the Paint</p>
+                <p class="sqky-carousel-why-drivers-choose-us-back-desc">A dusty car looks flat. With the dust and road film off, the dark grey paint reflects the garage lights again. This is a clean, not a paint correction.</p>
+                <a class="sqky-carousel-why-drivers-choose-us-back-cta" href="https://www.sqky.com.au/estimate">Get an Instant Estimate
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sqky-carousel-why-drivers-choose-us-card">
+          <div class="sqky-carousel-why-drivers-choose-us-flip">
+            <div class="sqky-carousel-why-drivers-choose-us-face sqky-carousel-why-drivers-choose-us-face-front">
+              <img class="sqky-carousel-why-drivers-choose-us-photo" src="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-side-intake.jpg" alt="Side intake and rear quarter panel of a dark grey McLaren with glossy paint" loading="lazy" decoding="async">
+              <div class="sqky-carousel-why-drivers-choose-us-text">
+                <h3 class="sqky-carousel-why-drivers-choose-us-title">Side Intake and Quarter Panel</h3>
+              </div>
+              <div class="sqky-carousel-why-drivers-choose-us-caption">
+                <span class="sqky-carousel-why-drivers-choose-us-caption-vehicle">McLaren GT</span>
+                <span class="sqky-carousel-why-drivers-choose-us-caption-service">Reset Clean · Exterior</span>
+              </div>
+              <button type="button" class="sqky-carousel-why-drivers-choose-us-plus" data-flip-open aria-label="Learn more — Side Intake and Quarter Panel">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              </button>
+            </div>
+            <div class="sqky-carousel-why-drivers-choose-us-face sqky-carousel-why-drivers-choose-us-face-back">
+              <button type="button" class="sqky-carousel-why-drivers-choose-us-back-close" data-flip-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="6" y1="18" x2="18" y2="6"></line></svg></button>
+              <div class="sqky-carousel-why-drivers-choose-us-back-inner">
+                <p class="sqky-carousel-why-drivers-choose-us-back-title">Side Intake and Quarter Panel</p>
+                <p class="sqky-carousel-why-drivers-choose-us-back-desc">Intakes and panel gaps collect dust. We cleaned them so the bodywork looks even along the whole side of the car.</p>
+                <a class="sqky-carousel-why-drivers-choose-us-back-cta" href="https://www.sqky.com.au/estimate">Get an Instant Estimate
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sqky-carousel-why-drivers-choose-us-card">
+          <div class="sqky-carousel-why-drivers-choose-us-flip">
+            <div class="sqky-carousel-why-drivers-choose-us-face sqky-carousel-why-drivers-choose-us-face-front">
+              <img class="sqky-carousel-why-drivers-choose-us-photo" src="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-bonnet-badge.jpg" alt="McLaren badge on the glossy dark bonnet with reflected strip light" loading="lazy" decoding="async">
+              <div class="sqky-carousel-why-drivers-choose-us-text">
+                <h3 class="sqky-carousel-why-drivers-choose-us-title">Badge and Bonnet</h3>
+              </div>
+              <div class="sqky-carousel-why-drivers-choose-us-caption">
+                <span class="sqky-carousel-why-drivers-choose-us-caption-vehicle">McLaren GT</span>
+                <span class="sqky-carousel-why-drivers-choose-us-caption-service">Reset Clean · Exterior</span>
+              </div>
+              <button type="button" class="sqky-carousel-why-drivers-choose-us-plus" data-flip-open aria-label="Learn more — Badge and Bonnet">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              </button>
+            </div>
+            <div class="sqky-carousel-why-drivers-choose-us-face sqky-carousel-why-drivers-choose-us-face-back">
+              <button type="button" class="sqky-carousel-why-drivers-choose-us-back-close" data-flip-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="6" y1="18" x2="18" y2="6"></line></svg></button>
+              <div class="sqky-carousel-why-drivers-choose-us-back-inner">
+                <p class="sqky-carousel-why-drivers-choose-us-back-title">Badge and Bonnet</p>
+                <p class="sqky-carousel-why-drivers-choose-us-back-desc">The area around the badge is where dust tends to settle. Cleaned, the bonnet gives a clean, clear reflection.</p>
+                <a class="sqky-carousel-why-drivers-choose-us-back-cta" href="https://www.sqky.com.au/estimate">Get an Instant Estimate
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sqky-carousel-why-drivers-choose-us-card">
+          <div class="sqky-carousel-why-drivers-choose-us-flip">
+            <div class="sqky-carousel-why-drivers-choose-us-face sqky-carousel-why-drivers-choose-us-face-front">
+              <img class="sqky-carousel-why-drivers-choose-us-photo" src="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-rear-badge.jpg" alt="Chrome McLaren badge on the rear of a dark grey McLaren above the diffuser" loading="lazy" decoding="async">
+              <div class="sqky-carousel-why-drivers-choose-us-text">
+                <h3 class="sqky-carousel-why-drivers-choose-us-title">Rear Badge and Diffuser</h3>
+              </div>
+              <div class="sqky-carousel-why-drivers-choose-us-caption">
+                <span class="sqky-carousel-why-drivers-choose-us-caption-vehicle">McLaren GT</span>
+                <span class="sqky-carousel-why-drivers-choose-us-caption-service">Reset Clean · Exterior</span>
+              </div>
+              <button type="button" class="sqky-carousel-why-drivers-choose-us-plus" data-flip-open aria-label="Learn more — Rear Badge and Diffuser">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              </button>
+            </div>
+            <div class="sqky-carousel-why-drivers-choose-us-face sqky-carousel-why-drivers-choose-us-face-back">
+              <button type="button" class="sqky-carousel-why-drivers-choose-us-back-close" data-flip-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="6" y1="18" x2="18" y2="6"></line></svg></button>
+              <div class="sqky-carousel-why-drivers-choose-us-back-inner">
+                <p class="sqky-carousel-why-drivers-choose-us-back-title">Rear Badge and Diffuser</p>
+                <p class="sqky-carousel-why-drivers-choose-us-back-desc">Chrome and tight rear corners cleaned carefully, so the badge sits on clean paint.</p>
+                <a class="sqky-carousel-why-drivers-choose-us-back-cta" href="https://www.sqky.com.au/estimate">Get an Instant Estimate
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sqky-carousel-why-drivers-choose-us-card">
+          <div class="sqky-carousel-why-drivers-choose-us-flip">
+            <div class="sqky-carousel-why-drivers-choose-us-face sqky-carousel-why-drivers-choose-us-face-front">
+              <img class="sqky-carousel-why-drivers-choose-us-photo" src="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-rear-overhead.jpg" alt="Overhead rear three-quarter view of a dark grey McLaren with glossy roof and black wheels" loading="lazy" decoding="async">
+              <div class="sqky-carousel-why-drivers-choose-us-text">
+                <h3 class="sqky-carousel-why-drivers-choose-us-title">Roof and Rear Deck</h3>
+              </div>
+              <div class="sqky-carousel-why-drivers-choose-us-caption">
+                <span class="sqky-carousel-why-drivers-choose-us-caption-vehicle">McLaren GT</span>
+                <span class="sqky-carousel-why-drivers-choose-us-caption-service">Reset Clean · Exterior</span>
+              </div>
+              <button type="button" class="sqky-carousel-why-drivers-choose-us-plus" data-flip-open aria-label="Learn more — Roof and Rear Deck">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              </button>
+            </div>
+            <div class="sqky-carousel-why-drivers-choose-us-face sqky-carousel-why-drivers-choose-us-face-back">
+              <button type="button" class="sqky-carousel-why-drivers-choose-us-back-close" data-flip-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="6" y1="18" x2="18" y2="6"></line></svg></button>
+              <div class="sqky-carousel-why-drivers-choose-us-back-inner">
+                <p class="sqky-carousel-why-drivers-choose-us-back-title">Roof and Rear Deck</p>
+                <p class="sqky-carousel-why-drivers-choose-us-back-desc">From above you see the whole top surface: roof, glass and rear deck, all clean.</p>
+                <a class="sqky-carousel-why-drivers-choose-us-back-cta" href="https://www.sqky.com.au/estimate">Get an Instant Estimate
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sqky-carousel-why-drivers-choose-us-card">
+          <div class="sqky-carousel-why-drivers-choose-us-flip">
+            <div class="sqky-carousel-why-drivers-choose-us-face sqky-carousel-why-drivers-choose-us-face-front">
+              <img class="sqky-carousel-why-drivers-choose-us-photo" src="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-rear-quarter-exhaust.jpg" alt="Rear quarter of a dark grey McLaren showing round exhaust tip and black alloy wheel" loading="lazy" decoding="async">
+              <div class="sqky-carousel-why-drivers-choose-us-text">
+                <h3 class="sqky-carousel-why-drivers-choose-us-title">Exhaust and Rear Quarter</h3>
+              </div>
+              <div class="sqky-carousel-why-drivers-choose-us-caption">
+                <span class="sqky-carousel-why-drivers-choose-us-caption-vehicle">McLaren GT</span>
+                <span class="sqky-carousel-why-drivers-choose-us-caption-service">Reset Clean · Exterior</span>
+              </div>
+              <button type="button" class="sqky-carousel-why-drivers-choose-us-plus" data-flip-open aria-label="Learn more — Exhaust and Rear Quarter">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              </button>
+            </div>
+            <div class="sqky-carousel-why-drivers-choose-us-face sqky-carousel-why-drivers-choose-us-face-back">
+              <button type="button" class="sqky-carousel-why-drivers-choose-us-back-close" data-flip-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="6" y1="18" x2="18" y2="6"></line></svg></button>
+              <div class="sqky-carousel-why-drivers-choose-us-back-inner">
+                <p class="sqky-carousel-why-drivers-choose-us-back-title">Exhaust and Rear Quarter</p>
+                <p class="sqky-carousel-why-drivers-choose-us-back-desc">The round exhaust tip and rear wheel were cleaned along with the quarter panel.</p>
+                <a class="sqky-carousel-why-drivers-choose-us-back-cta" href="https://www.sqky.com.au/estimate">Get an Instant Estimate
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sqky-carousel-why-drivers-choose-us-card">
+          <div class="sqky-carousel-why-drivers-choose-us-flip">
+            <div class="sqky-carousel-why-drivers-choose-us-face sqky-carousel-why-drivers-choose-us-face-front">
+              <img class="sqky-carousel-why-drivers-choose-us-photo" src="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-rear-tail-light.jpg" alt="Illuminated red tail light on the rear of a dark grey McLaren with polished bodywork" loading="lazy" decoding="async">
+              <div class="sqky-carousel-why-drivers-choose-us-text">
+                <h3 class="sqky-carousel-why-drivers-choose-us-title">Tail Light Detail</h3>
+              </div>
+              <div class="sqky-carousel-why-drivers-choose-us-caption">
+                <span class="sqky-carousel-why-drivers-choose-us-caption-vehicle">McLaren GT</span>
+                <span class="sqky-carousel-why-drivers-choose-us-caption-service">Reset Clean · Exterior</span>
+              </div>
+              <button type="button" class="sqky-carousel-why-drivers-choose-us-plus" data-flip-open aria-label="Learn more — Tail Light Detail">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              </button>
+            </div>
+            <div class="sqky-carousel-why-drivers-choose-us-face sqky-carousel-why-drivers-choose-us-face-back">
+              <button type="button" class="sqky-carousel-why-drivers-choose-us-back-close" data-flip-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="6" y1="18" x2="18" y2="6"></line></svg></button>
+              <div class="sqky-carousel-why-drivers-choose-us-back-inner">
+                <p class="sqky-carousel-why-drivers-choose-us-back-title">Tail Light Detail</p>
+                <p class="sqky-carousel-why-drivers-choose-us-back-desc">Clean lenses and clean paint around them, so the rear lights look sharp.</p>
+                <a class="sqky-carousel-why-drivers-choose-us-back-cta" href="https://www.sqky.com.au/estimate">Get an Instant Estimate
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sqky-carousel-why-drivers-choose-us-card">
+          <div class="sqky-carousel-why-drivers-choose-us-flip">
+            <div class="sqky-carousel-why-drivers-choose-us-face sqky-carousel-why-drivers-choose-us-face-front">
+              <img class="sqky-carousel-why-drivers-choose-us-photo" src="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-rear-end.jpg" alt="Rear end of a dark grey McLaren showing exhaust tip and rear glass reflections" loading="lazy" decoding="async">
+              <div class="sqky-carousel-why-drivers-choose-us-text">
+                <h3 class="sqky-carousel-why-drivers-choose-us-title">Rear End Finish</h3>
+              </div>
+              <div class="sqky-carousel-why-drivers-choose-us-caption">
+                <span class="sqky-carousel-why-drivers-choose-us-caption-vehicle">McLaren GT</span>
+                <span class="sqky-carousel-why-drivers-choose-us-caption-service">Reset Clean · Exterior</span>
+              </div>
+              <button type="button" class="sqky-carousel-why-drivers-choose-us-plus" data-flip-open aria-label="Learn more — Rear End Finish">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              </button>
+            </div>
+            <div class="sqky-carousel-why-drivers-choose-us-face sqky-carousel-why-drivers-choose-us-face-back">
+              <button type="button" class="sqky-carousel-why-drivers-choose-us-back-close" data-flip-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="6" y1="18" x2="18" y2="6"></line></svg></button>
+              <div class="sqky-carousel-why-drivers-choose-us-back-inner">
+                <p class="sqky-carousel-why-drivers-choose-us-back-title">Rear End Finish</p>
+                <p class="sqky-carousel-why-drivers-choose-us-back-desc">Rear glass, exhaust and bodywork finished clean, with no dust left sitting in the lines.</p>
+                <a class="sqky-carousel-why-drivers-choose-us-back-cta" href="https://www.sqky.com.au/estimate">Get an Instant Estimate
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sqky-carousel-why-drivers-choose-us-card">
+          <div class="sqky-carousel-why-drivers-choose-us-flip">
+            <div class="sqky-carousel-why-drivers-choose-us-face sqky-carousel-why-drivers-choose-us-face-front">
+              <img class="sqky-carousel-why-drivers-choose-us-photo" src="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-interior-cockpit.jpg" alt="McLaren interior with cream and black leather, steering wheel and centre display" loading="lazy" decoding="async">
+              <div class="sqky-carousel-why-drivers-choose-us-text">
+                <h3 class="sqky-carousel-why-drivers-choose-us-title">Cockpit Reset</h3>
+              </div>
+              <div class="sqky-carousel-why-drivers-choose-us-caption">
+                <span class="sqky-carousel-why-drivers-choose-us-caption-vehicle">McLaren GT</span>
+                <span class="sqky-carousel-why-drivers-choose-us-caption-service">Reset Clean · Interior</span>
+              </div>
+              <button type="button" class="sqky-carousel-why-drivers-choose-us-plus" data-flip-open aria-label="Learn more — Cockpit Reset">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              </button>
+            </div>
+            <div class="sqky-carousel-why-drivers-choose-us-face sqky-carousel-why-drivers-choose-us-face-back">
+              <button type="button" class="sqky-carousel-why-drivers-choose-us-back-close" data-flip-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="6" y1="18" x2="18" y2="6"></line></svg></button>
+              <div class="sqky-carousel-why-drivers-choose-us-back-inner">
+                <p class="sqky-carousel-why-drivers-choose-us-back-title">Cockpit Reset</p>
+                <p class="sqky-carousel-why-drivers-choose-us-back-desc">Leather, trim, screen and steering wheel cleaned, so the cream and black cabin feels fresh the moment the door opens.</p>
+                <a class="sqky-carousel-why-drivers-choose-us-back-cta" href="https://www.sqky.com.au/estimate">Get an Instant Estimate
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sqky-carousel-why-drivers-choose-us-card">
+          <div class="sqky-carousel-why-drivers-choose-us-flip">
+            <div class="sqky-carousel-why-drivers-choose-us-face sqky-carousel-why-drivers-choose-us-face-front">
+              <img class="sqky-carousel-why-drivers-choose-us-photo" src="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-driver-seat.jpg" alt="Open McLaren driver door showing black leather seat, steering wheel and cream interior trim" loading="lazy" decoding="async">
+              <div class="sqky-carousel-why-drivers-choose-us-text">
+                <h3 class="sqky-carousel-why-drivers-choose-us-title">Driver&#x27;s Seat</h3>
+              </div>
+              <div class="sqky-carousel-why-drivers-choose-us-caption">
+                <span class="sqky-carousel-why-drivers-choose-us-caption-vehicle">McLaren GT</span>
+                <span class="sqky-carousel-why-drivers-choose-us-caption-service">Reset Clean · Interior</span>
+              </div>
+              <button type="button" class="sqky-carousel-why-drivers-choose-us-plus" data-flip-open aria-label="Learn more — Driver&#x27;s Seat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              </button>
+            </div>
+            <div class="sqky-carousel-why-drivers-choose-us-face sqky-carousel-why-drivers-choose-us-face-back">
+              <button type="button" class="sqky-carousel-why-drivers-choose-us-back-close" data-flip-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="6" y1="18" x2="18" y2="6"></line></svg></button>
+              <div class="sqky-carousel-why-drivers-choose-us-back-inner">
+                <p class="sqky-carousel-why-drivers-choose-us-back-title">Driver&#x27;s Seat</p>
+                <p class="sqky-carousel-why-drivers-choose-us-back-desc">The seat and sill are the parts touched most. Both cleaned and tidy.</p>
+                <a class="sqky-carousel-why-drivers-choose-us-back-cta" href="https://www.sqky.com.au/estimate">Get an Instant Estimate
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sqky-carousel-why-drivers-choose-us-card">
+          <div class="sqky-carousel-why-drivers-choose-us-flip">
+            <div class="sqky-carousel-why-drivers-choose-us-face sqky-carousel-why-drivers-choose-us-face-front">
+              <img class="sqky-carousel-why-drivers-choose-us-photo" src="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-centre-console.jpg" alt="McLaren centre console with gear controls and black leather seats with cream trim" loading="lazy" decoding="async">
+              <div class="sqky-carousel-why-drivers-choose-us-text">
+                <h3 class="sqky-carousel-why-drivers-choose-us-title">Centre Console</h3>
+              </div>
+              <div class="sqky-carousel-why-drivers-choose-us-caption">
+                <span class="sqky-carousel-why-drivers-choose-us-caption-vehicle">McLaren GT</span>
+                <span class="sqky-carousel-why-drivers-choose-us-caption-service">Reset Clean · Interior</span>
+              </div>
+              <button type="button" class="sqky-carousel-why-drivers-choose-us-plus" data-flip-open aria-label="Learn more — Centre Console">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              </button>
+            </div>
+            <div class="sqky-carousel-why-drivers-choose-us-face sqky-carousel-why-drivers-choose-us-face-back">
+              <button type="button" class="sqky-carousel-why-drivers-choose-us-back-close" data-flip-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="6" y1="18" x2="18" y2="6"></line></svg></button>
+              <div class="sqky-carousel-why-drivers-choose-us-back-inner">
+                <p class="sqky-carousel-why-drivers-choose-us-back-title">Centre Console</p>
+                <p class="sqky-carousel-why-drivers-choose-us-back-desc">Controls and console surfaces cleaned, including the gaps around buttons where dust collects.</p>
+                <a class="sqky-carousel-why-drivers-choose-us-back-cta" href="https://www.sqky.com.au/estimate">Get an Instant Estimate
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sqky-carousel-why-drivers-choose-us-card">
+          <div class="sqky-carousel-why-drivers-choose-us-flip">
+            <div class="sqky-carousel-why-drivers-choose-us-face sqky-carousel-why-drivers-choose-us-face-front">
+              <img class="sqky-carousel-why-drivers-choose-us-photo" src="https://cdn.jsdelivr.net/gh/sqkydetailingco/website-blogs@main/articles/2026-11-mclaren/images/sqky-reset-clean-mclaren-gt-door-speaker.jpg" alt="McLaren door speaker grille set in clean cream leather door panel" loading="lazy" decoding="async">
+              <div class="sqky-carousel-why-drivers-choose-us-text">
+                <h3 class="sqky-carousel-why-drivers-choose-us-title">Door Panels and Speaker</h3>
+              </div>
+              <div class="sqky-carousel-why-drivers-choose-us-caption">
+                <span class="sqky-carousel-why-drivers-choose-us-caption-vehicle">McLaren GT</span>
+                <span class="sqky-carousel-why-drivers-choose-us-caption-service">Reset Clean · Interior</span>
+              </div>
+              <button type="button" class="sqky-carousel-why-drivers-choose-us-plus" data-flip-open aria-label="Learn more — Door Panels and Speaker">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              </button>
+            </div>
+            <div class="sqky-carousel-why-drivers-choose-us-face sqky-carousel-why-drivers-choose-us-face-back">
+              <button type="button" class="sqky-carousel-why-drivers-choose-us-back-close" data-flip-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="6" y1="18" x2="18" y2="6"></line></svg></button>
+              <div class="sqky-carousel-why-drivers-choose-us-back-inner">
+                <p class="sqky-carousel-why-drivers-choose-us-back-title">Door Panels and Speaker</p>
+                <p class="sqky-carousel-why-drivers-choose-us-back-desc">The speaker grille and door panel edges get attention too, because dust in the small details is what makes a cabin look uncared for.</p>
+                <a class="sqky-carousel-why-drivers-choose-us-back-cta" href="https://www.sqky.com.au/estimate">Get an Instant Estimate
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sqky-carousel-why-drivers-choose-us-nav">
+      <button type="button" class="sqky-carousel-why-drivers-choose-us-arrow" data-prev aria-label="Previous">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      <button type="button" class="sqky-carousel-why-drivers-choose-us-arrow" data-next aria-label="Next">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  document.querySelectorAll('[data-sqky-carousel-why-drivers-choose-us-root]').forEach((root) => {
+    if (root.dataset.sqkyCarouselInit === "1") return;
+    root.dataset.sqkyCarouselInit = "1";
+    root.addEventListener('click', () => {
+      window.dispatchEvent(new Event('sqky:carousel-click'));
+    });
+    const ax = root.querySelector('[data-sqky-carousel-why-drivers-choose-us]');
+    const track = ax.querySelector('.sqky-carousel-why-drivers-choose-us-track');
+    const cards = Array.from(ax.querySelectorAll('.sqky-carousel-why-drivers-choose-us-card'));
+    const prevBtn = ax.querySelector('[data-prev]');
+    const nextBtn = ax.querySelector('[data-next]');
+    function getVisible(){
+      const v = getComputedStyle(ax).getPropertyValue('--sqky-carousel-why-drivers-choose-us-visible');
+      const n = parseFloat(v);
+      return isNaN(n) ? 3 : n;
+    }
+    const visibleFull = Math.max(1, Math.floor(getVisible()));
+    const maxIndex = Math.max(0, cards.length - visibleFull);
+    let index = 0;
+    function resetFlips(){
+      cards.forEach((card) => {
+        if (!card.classList.contains('is-flipped')) return;
+        card.classList.remove('is-flipped');
+        const video = card.querySelector('.sqky-carousel-why-drivers-choose-us-back-video video');
+        const playBtn = card.querySelector('[data-video-play]');
+        if (video) { video.pause(); video.currentTime = 0; video.removeAttribute('controls'); }
+        if (playBtn) { playBtn.classList.remove('is-playing'); }
+      });
+    }
+    function update(){
+      const stepPct = 100 / getVisible();
+      track.style.transform = `translateX(-${index * stepPct}%)`;
+      prevBtn.disabled = index === 0;
+      nextBtn.disabled = index === maxIndex;
+    }
+    prevBtn.addEventListener('click', () => { resetFlips(); index = Math.max(0, index - 1); update(); });
+    nextBtn.addEventListener('click', () => { resetFlips(); index = Math.min(maxIndex, index + 1); update(); });
+    update();
+    window.addEventListener('resize', update);
+    let startX = 0, startY = 0, swiping = false;
+    const THRESH = 40;
+    ax.addEventListener('touchstart', (e) => {
+      if (!e.touches || e.touches.length !== 1) return;
+      swiping = true;
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    }, { passive:true });
+    ax.addEventListener('touchmove', (e) => {
+      if (!swiping) return;
+      const dx = Math.abs(e.touches[0].clientX - startX);
+      const dy = Math.abs(e.touches[0].clientY - startY);
+      if (dy > dx) swiping = false;
+    }, { passive:true });
+    ax.addEventListener('touchend', (e) => {
+      if (!swiping) return;
+      swiping = false;
+      const diffX = e.changedTouches[0].clientX - startX;
+      if (Math.abs(diffX) < THRESH) return;
+      resetFlips();
+      index = diffX < 0 ? Math.min(maxIndex, index + 1) : Math.max(0, index - 1);
+      update();
+    }, { passive:true });
+    cards.forEach((card) => {
+      const frontFace = card.querySelector('.sqky-carousel-why-drivers-choose-us-face-front');
+      const openBtn = card.querySelector('[data-flip-open]');
+      const closeBtn = card.querySelector('[data-flip-close]');
+      if (frontFace) frontFace.addEventListener('click', () => card.classList.add('is-flipped'));
+      if (openBtn) openBtn.addEventListener('click', () => card.classList.add('is-flipped'));
+      if (closeBtn) closeBtn.addEventListener('click', () => {
+        card.classList.remove('is-flipped');
+        const video = card.querySelector('.sqky-carousel-why-drivers-choose-us-back-video video');
+        const playBtn = card.querySelector('[data-video-play]');
+        if (video) { video.pause(); video.currentTime = 0; video.removeAttribute('controls'); }
+        if (playBtn) { playBtn.classList.remove('is-playing'); }
+      });
+      const playBtn = card.querySelector('[data-video-play]');
+      if (playBtn) {
+        const video = card.querySelector('.sqky-carousel-why-drivers-choose-us-back-video video');
+        const isMobile = () => window.matchMedia('(max-width: 640px)').matches;
+        playBtn.addEventListener('click', () => {
+          if (!video) return;
+          video.setAttribute('controls', '');
+          video.play().then(() => {
+            playBtn.classList.add('is-playing');
+            if (isMobile()) {
+              if (typeof video.webkitEnterFullscreen === 'function') {
+                video.webkitEnterFullscreen();
+              } else if (video.requestFullscreen) {
+                video.requestFullscreen().catch(() => {});
+              }
+            }
+          }).catch(() => {});
+        });
+        video.addEventListener('webkitendfullscreen', () => {
+          video.pause();
+          video.currentTime = 0;
+          playBtn.classList.remove('is-playing');
+        });
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      resetFlips();
+    });
+  });
+})();
+</script>

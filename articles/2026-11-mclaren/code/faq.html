@@ -1,0 +1,238 @@
+<style>
+.sqky-carousel-faq-wrap{ width:100%; font-family:-apple-system,BlinkMacSystemFont,sans-serif; margin:0 !important; padding:0 !important; }
+.sqky-carousel-faq-wrap, .sqky-carousel-faq-wrap *{ box-sizing:border-box; }
+.sqky-carousel-faq{
+  --sqky-carousel-faq-h: 460px;
+  --sqky-carousel-faq-visible: 3.15;
+  --sqky-carousel-faq-gap: 14px;
+  --sqky-carousel-faq-radius: 18px;
+  position: relative;
+}
+.sqky-carousel-faq-stage{
+  position: relative;
+  overflow: hidden;
+}
+.sqky-carousel-faq-track{
+  display:flex;
+  will-change: transform;
+  transition: transform 500ms cubic-bezier(.2,.8,.2,1);
+}
+.sqky-carousel-faq-card{
+  flex: 0 0 calc(100% / var(--sqky-carousel-faq-visible) - var(--sqky-carousel-faq-gap));
+  width: calc(100% / var(--sqky-carousel-faq-visible) - var(--sqky-carousel-faq-gap));
+  height: var(--sqky-carousel-faq-h);
+  margin-right: var(--sqky-carousel-faq-gap);
+  position: relative;
+  border-radius: var(--sqky-carousel-faq-radius);
+  overflow: hidden;
+  background: #f0f0f0;
+}
+.sqky-carousel-faq-card:last-child{ margin-right: 0; }
+.sqky-carousel-faq-inner{
+  position:absolute;
+  inset:0;
+  overflow-y:auto;
+  padding: 24px 22px 112px;
+  display:flex;
+  flex-direction:column;
+  color:#1d1d1f;
+}
+.sqky-carousel-faq-q{
+  font-size: 28px;
+  font-weight: 550 !important;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0 0 12px;
+  flex-shrink:0;
+  color: #1d1d1f !important;
+}
+.sqky-carousel-faq-a{
+  font-size: 16.5px;
+  line-height: 1.55;
+  color: rgba(0,0,0,0.72);
+  margin:0;
+  flex-shrink:0;
+}
+.sqky-carousel-faq-ctas{
+  position:absolute;
+  left:16px;
+  right:16px;
+  bottom:16px;
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  gap: 8px;
+}
+.sqky-carousel-faq-cta{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  width:100%;
+  height:38px;
+  border-radius:999px;
+  border:0;
+  background: #1d1d1f;
+  color:#fff;
+  font-size:13px;
+  font-weight:650;
+  text-decoration:none;
+  transition: background 150ms ease, transform 150ms ease;
+}
+.sqky-carousel-faq-cta:hover{ background:#000; transform: translateY(-1px); }
+.sqky-carousel-faq-cta svg{ width:12px; height:12px; }
+.sqky-carousel-faq-card--dark{ background: #0b0b0b; }
+.sqky-carousel-faq-card--dark .sqky-carousel-faq-q{ color: #fff !important; }
+.sqky-carousel-faq-card--dark .sqky-carousel-faq-a{ color: rgba(255,255,255,0.78); }
+.sqky-carousel-faq-card--dark .sqky-carousel-faq-cta{ background: #fff; color: #0b0b0b; }
+.sqky-carousel-faq-card--dark .sqky-carousel-faq-cta:hover{ background:#e8e8ed; }
+.sqky-carousel-faq-nav{
+  display:flex;
+  justify-content:flex-end;
+  gap: 10px;
+  margin-top: 16px;
+}
+.sqky-carousel-faq-arrow{
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 0;
+  background: #e8e8ed;
+  color: #6e6e73;
+  cursor: pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition: background 150ms ease, color 150ms ease;
+}
+.sqky-carousel-faq-arrow:hover{ background:#d6d6db; color:#1d1d1f; }
+.sqky-carousel-faq-arrow[disabled]{ opacity:0.45; pointer-events:none; }
+.sqky-carousel-faq-arrow svg{ width:15px; height:15px; }
+@media (max-width: 1024px){
+  .sqky-carousel-faq{ --sqky-carousel-faq-h: 420px; --sqky-carousel-faq-visible: 2.25; --sqky-carousel-faq-gap: 12px; }
+}
+@media (max-width: 640px){
+  .sqky-carousel-faq{ --sqky-carousel-faq-h: 500px; --sqky-carousel-faq-visible: 1.15; --sqky-carousel-faq-gap: 10px; }
+  .sqky-carousel-faq-q{ font-size: 28px; font-weight: 700 !important; }
+}
+</style>
+<div class="sqky-carousel-faq-wrap" data-sqky-carousel-faq-root>
+  <div class="sqky-carousel-faq" data-sqky-carousel-faq>
+    <div class="sqky-carousel-faq-stage">
+      <div class="sqky-carousel-faq-track">
+        <div class="sqky-carousel-faq-card">
+          <div class="sqky-carousel-faq-inner">
+            <h3 class="sqky-carousel-faq-q">How long does a Reset Clean take on a McLaren GT?</h3>
+            <p class="sqky-carousel-faq-a">This McLaren GT took 3.5 hours on site in Glen Iris. A Reset Clean is an interior and exterior package, and we allow about 3 to 3.5 hours depending on the condition of the car.</p>
+            <div class="sqky-carousel-faq-ctas">
+              <a class="sqky-carousel-faq-cta" href="https://www.sqky.com.au/estimate">Get an Instant Estimate
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="sqky-carousel-faq-card">
+          <div class="sqky-carousel-faq-inner">
+            <h3 class="sqky-carousel-faq-q">Does a Reset Clean include paint correction?</h3>
+            <p class="sqky-carousel-faq-a">No. A Reset Clean cleans the interior and exterior but does not polish out swirl marks or scratches. Paint correction can be added to a Reset Clean, and we quote it after inspecting the car.</p>
+            <div class="sqky-carousel-faq-ctas">
+              <a class="sqky-carousel-faq-cta" href="https://www.sqky.com.au/estimate">Get an Instant Estimate
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="sqky-carousel-faq-card">
+          <div class="sqky-carousel-faq-inner">
+            <h3 class="sqky-carousel-faq-q">Can you detail a McLaren in a basement car park?</h3>
+            <p class="sqky-carousel-faq-a">Yes. This job was done in a basement car park in Glen Iris, so the car did not have to go anywhere. We confirm access and space with you before the visit.</p>
+            <div class="sqky-carousel-faq-ctas">
+              <a class="sqky-carousel-faq-cta" href="https://www.sqky.com.au/policies/before-we-arrive">Service Requirements
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="sqky-carousel-faq-card sqky-carousel-faq-card--dark">
+          <div class="sqky-carousel-faq-inner">
+            <h3 class="sqky-carousel-faq-q">How is a Reset Clean different from a corner car wash?</h3>
+            <p class="sqky-carousel-faq-a">A Reset Clean is a booked, one-car-at-a-time interior and exterior detail done at your location, so the result does not depend on how busy the day is. This owner switched to us after inconsistent results from a corner car wash.</p>
+            <div class="sqky-carousel-faq-ctas">
+              <a class="sqky-carousel-faq-cta" href="https://www.sqky.com.au/estimate">Get an Instant Estimate
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sqky-carousel-faq-nav">
+      <button type="button" class="sqky-carousel-faq-arrow" data-prev aria-label="Previous">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      <button type="button" class="sqky-carousel-faq-arrow" data-next aria-label="Next">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  document.querySelectorAll('[data-sqky-carousel-faq-root]').forEach((root) => {
+    if (root.dataset.sqkyCarouselFaqInit === "1") return;
+    root.dataset.sqkyCarouselFaqInit = "1";
+    root.addEventListener('click', () => {
+      window.dispatchEvent(new Event('sqky:carousel-click'));
+    });
+    const svc = root.querySelector('[data-sqky-carousel-faq]');
+    const track = svc.querySelector('.sqky-carousel-faq-track');
+    const cards = Array.from(svc.querySelectorAll('.sqky-carousel-faq-card'));
+    const prevBtn = svc.querySelector('[data-prev]');
+    const nextBtn = svc.querySelector('[data-next]');
+    function getVisible(){
+      const v = getComputedStyle(svc).getPropertyValue('--sqky-carousel-faq-visible');
+      const n = parseFloat(v);
+      return isNaN(n) ? 3 : n;
+    }
+    const visibleFull = Math.max(1, Math.floor(getVisible()));
+    const maxIndex = Math.max(0, cards.length - visibleFull);
+    let index = 0;
+    function update(){
+      const stepPct = 100 / getVisible();
+      track.style.transform = `translateX(-${index * stepPct}%)`;
+      prevBtn.disabled = index === 0;
+      nextBtn.disabled = index === maxIndex;
+    }
+    prevBtn.addEventListener('click', () => { index = Math.max(0, index - 1); update(); });
+    nextBtn.addEventListener('click', () => { index = Math.min(maxIndex, index + 1); update(); });
+    update();
+    window.addEventListener('resize', update);
+    let startX = 0, startY = 0, swiping = false;
+    const THRESH = 40;
+    svc.addEventListener('touchstart', (e) => {
+      if (!e.touches || e.touches.length !== 1) return;
+      swiping = true;
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    }, { passive:true });
+    svc.addEventListener('touchmove', (e) => {
+      if (!swiping) return;
+      const dx = Math.abs(e.touches[0].clientX - startX);
+      const dy = Math.abs(e.touches[0].clientY - startY);
+      if (dy > dx) swiping = false;
+    }, { passive:true });
+    svc.addEventListener('touchend', (e) => {
+      if (!swiping) return;
+      swiping = false;
+      const diffX = e.changedTouches[0].clientX - startX;
+      if (Math.abs(diffX) < THRESH) return;
+      index = diffX < 0 ? Math.min(maxIndex, index + 1) : Math.max(0, index - 1);
+      update();
+    }, { passive:true });
+  });
+})();
+</script>
+
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How long does a Reset Clean take on a McLaren GT?", "acceptedAnswer": {"@type": "Answer", "text": "This McLaren GT took 3.5 hours on site in Glen Iris. A Reset Clean is an interior and exterior package, and we allow about 3 to 3.5 hours depending on the condition of the car."}}, {"@type": "Question", "name": "Does a Reset Clean include paint correction?", "acceptedAnswer": {"@type": "Answer", "text": "No. A Reset Clean cleans the interior and exterior but does not polish out swirl marks or scratches. Paint correction can be added to a Reset Clean, and we quote it after inspecting the car."}}, {"@type": "Question", "name": "Can you detail a McLaren in a basement car park?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. This job was done in a basement car park in Glen Iris, so the car did not have to go anywhere. We confirm access and space with you before the visit."}}, {"@type": "Question", "name": "How is a Reset Clean different from a corner car wash?", "acceptedAnswer": {"@type": "Answer", "text": "A Reset Clean is a booked, one-car-at-a-time interior and exterior detail done at your location, so the result does not depend on how busy the day is. This owner switched to us after inconsistent results from a corner car wash."}}]}
+</script>
