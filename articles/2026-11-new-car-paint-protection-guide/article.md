@@ -35,3 +35,7 @@ Note: low resolution for a full-width hero; swap for a larger original when avai
 ### ppf-install-headlight-film-squeegee-melbourne.jpg (1536x2730)
 Alt: Installer in a black glove using a blue squeegee to smooth clear paint protection film around the headlight of a white car.
 Used on the Paint Protection Film (PPF) card front.
+
+### wax-application-paint-sealant-melbourne.jpg (1569x2812)
+Alt: Gloved hand buffing wax into the glossy bonnet of a blue sports car with a foam applicator pad.
+Used on the Waxes & Sealants card front (replaces the earlier blue car stock image).
