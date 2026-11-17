@@ -23,3 +23,9 @@ Alt: Black BMW M2 rear quarter panel 18 months after ceramic coating, with deep 
 
 ### bmw-m2-ceramic-coating-18-months-water-beading-melbourne-02.jpg (1080x1920)
 Alt: Water beading into neat, round droplets on the black BMW M2's ceramic-coated paint 18 months after application.
+
+## Hero image
+
+### new-car-ceramic-coating-application-hero-melbourne.jpg (1024x683)
+Alt: Gloved hand applying ceramic coating to the glossy blue paint of a new car with a foam applicator.
+Note: low resolution for a full-width hero; swap for a larger original when available.
