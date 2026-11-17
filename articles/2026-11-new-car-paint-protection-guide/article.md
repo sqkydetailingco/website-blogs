@@ -15,3 +15,11 @@ Alt: Diagram of a car's paint system built from four stacked layers: primer at t
 
 ### nxtzen-coating-performance-maintained-vs-irregular-care-graph.png (1080x1080)
 Alt: Line graph of coating performance over five years since application. A coating on a regular maintenance plan holds strong performance through the 5-year protection guarantee, while a coating with irregular care declines steadily and ends far lower.
+
+## BMW M2 results section images
+
+### bmw-m2-ceramic-coating-18-months-finish-melbourne-01.jpg (1080x1920)
+Alt: Black BMW M2 rear quarter panel 18 months after ceramic coating, with deep gloss and clean reflections of the garage strip lights across the paint.
+
+### bmw-m2-ceramic-coating-18-months-water-beading-melbourne-02.jpg (1080x1920)
+Alt: Water beading into neat, round droplets on the black BMW M2's ceramic-coated paint 18 months after application.
