@@ -29,3 +29,9 @@ Alt: Water beading into neat, round droplets on the black BMW M2's ceramic-coate
 ### new-car-ceramic-coating-application-hero-melbourne.jpg (1024x683)
 Alt: Gloved hand applying ceramic coating to the glossy blue paint of a new car with a foam applicator.
 Note: low resolution for a full-width hero; swap for a larger original when available.
+
+## Options carousel image
+
+### ppf-install-headlight-film-squeegee-melbourne.jpg (1536x2730)
+Alt: Installer in a black glove using a blue squeegee to smooth clear paint protection film around the headlight of a white car.
+Used on the Paint Protection Film (PPF) card front.
